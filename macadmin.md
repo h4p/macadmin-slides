@@ -83,7 +83,7 @@
 ```bash
 $ % crontab -l                        
 */10 * * * * /usr/local/bin/ansible-pull -o -U \ 
-https://git.ongoingmedia.de/mac-playbooks.git new-changes.yml
+https://gitserver/mac-playbooks.git new-changes.yml
 ```
 --
 ### Ansible-pull Monitoring
@@ -94,12 +94,12 @@ https://git.ongoingmedia.de/mac-playbooks.git new-changes.yml
 - hosts: localhost
   connection: local
   vars:
-    webhook_url: "https://ongoingmedia.webhook.office.com/webhookb2/fb8afaab-896f-42b8-a7e3-53d8582a795e@9ad7b94a-e769-4cbc-b48b-66fbd732a580/IncomingWebhook/e2b1d6175bd94313b2bc654c838745dd/1e7b8b7f-6e70-437b-a054-25f3ee975ef8"
+    webhook_url: "https://company.webhook.office.com/webhookb2/fb8afaab-896f-42b8-a7e3-53d8582a235e@9ad7b94a-e769-4cbc-b48b-66fbd732a580/IncomingWebhook/e2b1d6175bd94313b2bc654c838745dd/1e7b8b7f-6e70-423b-a054-25f3ee975ef8"
   tasks:
     - name: Microsoft Teams Webhook
       office_365_connector_card:
         webhook: "{{ webhook_url }}"
-        text: "{{inventory_hostname}}: test123"
+        text: "{{inventory_hostname}}: Everything is up to date."
 ```
 
 --
